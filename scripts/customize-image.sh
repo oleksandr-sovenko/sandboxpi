@@ -43,7 +43,8 @@ Main() {
 			/bin/bash build
 
 			# SJS
-			git clone https://github.com/oleksandr-sovenko/sandboxpi.git /opt/sjs
+			git clone https://github.com/oleksandr-sovenko/sandboxpi.git /tmp/sandboxpi
+			mv -f /tmp/sandboxpi /opt
 			cd /opt/sjs/src
 			chmod +x build.sh
 			./build.sh
