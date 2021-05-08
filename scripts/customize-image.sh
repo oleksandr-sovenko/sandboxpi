@@ -44,7 +44,7 @@ Main() {
 
 			# SJS
 			git clone https://github.com/oleksandr-sovenko/sandboxpi.git /tmp/sandboxpi
-			mv -f /tmp/sandboxpi /opt
+			mv -f /tmp/sandboxpi/sjs /opt
 			cd /opt/sjs/src
 			chmod +x build.sh
 			./build.sh
