@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#cd /var/www/vhosts/builder.orangecoder.org/orangecoder-build
+# ./build orangepi2            > orangepi2.log 2>&1
+# ./build orangepi3            > orangepi3.log 2>&1
+# ./build orangepi4            > orangepi4.log 2>&1
+./build orangepi-r1          > orangepi-r1.log 2>&1
+# ./build orangepi-rk3399      > orangepi-rk3399.log 2>&1
+# ./build orangepilite         > orangepilite.log 2>&1
+# ./build orangepilite2        > orangepilite2.log 2>&1
+# ./build orangepioneplus      > orangepioneplus.log 2>&1
+# ./build orangepione          > orangepione.log 2>&1
+./build orangepipc           > orangepipc.log 2>&1
+# ./build orangepipc2          > orangepipc2.log 2>&1
+# ./build orangepipcplus       > orangepipcplus.log 2>&1
+# ./build orangepiplus         > orangepiplus.log 2>&1
+# ./build orangepiplus2e       > orangepiplus2e.log 2>&1
+# ./build orangepiprime        > orangepiprime.log 2>&1
+# ./build orangepiwin          > orangepiwin.log 2>&1
+./build orangepizero         > orangepizero.log 2>&1
+./build orangepizero2        > orangepizero2.log 2>&1
+# ./build orangepizeroplus     > orangepizeroplus.log 2>&1
+# ./build orangepizeroplus2-h3 > orangepizeroplus2-h3.log 2>&1
+# ./build orangepizeroplus2-h5 > orangepizeroplus2-h5.log 2>&1

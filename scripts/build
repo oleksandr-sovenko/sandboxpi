@@ -1,0 +1,66 @@
+#!/usr/bin/php
+<?php
+
+$boards = array(
+	'orangepi2',
+	'orangepi3',
+	'orangepi4',
+	'orangepi-r1',
+	'orangepi-rk3399',
+	'orangepilite',
+	'orangepilite2',
+	'orangepioneplus',
+	'orangepione',
+	'orangepipc',
+	'orangepipc2',
+	'orangepipcplus',
+	'orangepiplus',
+	'orangepiplus2e',
+	'orangepiprime',
+	'orangepiwin',
+	'orangepizero',
+	'orangepizero2',
+	'orangepizeroplus',
+	'orangepizeroplus2-h3',
+	'orangepizeroplus2-h5',
+);
+
+if (empty($argv[1]))
+	exit;
+
+if (!in_array($argv[1], $boards))
+	exit;
+
+define('BOARD' , $argv[1]);
+define('ENV'   , 'export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin";');
+define('BUILD' , __DIR__.'/../.build');
+define('IMAGES', __DIR__.'/../images');
+
+if (!file_exists(IMAGES))
+	mkdir(IMAGES, 0755, true);
+
+if (file_exists(BUILD))
+	system(ENV.'cd '.BUILD.' && git pull origin master');
+else
+	system(ENV.'git clone --depth 1 https://github.com/armbian/build '.BUILD);
+
+system(ENV.'
+	cp '.__DIR__.'/customize-image.sh '.BUILD.'/userpatches/customize-image.sh && \
+	cp '.__DIR__.'/lib.config         '.BUILD.'/userpatches/lib.config
+');
+
+system(ENV.'
+	cd '.BUILD.' && \
+	./compile.sh \
+		BOARD='.BOARD.' \
+		BRANCH=current \
+		RELEASE=focal \
+		BUILD_MINIMAL=yes \
+		BUILD_DESKTOP=no \
+		KERNEL_ONLY=no \
+		KERNEL_CONFIGURE=no \
+		COMPRESS_OUTPUTIMAGE=xz && \
+	mv -f ./output/images/* '.IMAGES.'
+');
+
+?>
