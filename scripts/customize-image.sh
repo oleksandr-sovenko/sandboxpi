@@ -42,6 +42,13 @@ Main() {
 			cd /tmp/WiringOP-Zero
 			/bin/bash build
 
+			# python-OBD
+			cd /tmp
+			git clone https://github.com/brendan-w/python-OBD.git
+			cd python-OBD
+			python3 setup.py build
+			python3 setup.py install
+
 			# SJS
 			git clone https://github.com/oleksandr-sovenko/sandboxpi.git /tmp/sandboxpi
 			mv -f /tmp/sandboxpi/sjs /opt
