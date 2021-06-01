@@ -49,12 +49,8 @@ Main() {
 			python3 setup.py build
 			python3 setup.py install
 
-			# SJS
-			git clone https://github.com/oleksandr-sovenko/sandboxpi.git /tmp/sandboxpi
-			mv -f /tmp/sandboxpi/sjs /opt
-			cd /opt/sjs/src
-			chmod +x build.sh
-			./build.sh
+			# Node Sandbox Pi
+			npm i https://github.com/oleksandr-sovenko/node-sandboxpi -g --unsafe
 
 			# /boot/armbianEnv.txt
 			cat /boot/armbianEnv.txt
